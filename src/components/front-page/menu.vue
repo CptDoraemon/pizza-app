@@ -9,15 +9,19 @@
                 <v-card
                     :height="item.tileSize === 3 ? 0.5 * cardHeight : cardHeight"
                     :class="[item.backgroundColor, `${item.color === 'PRIMARY' ? 'brown' : 'white'}--text`]"
-                    :style="{borderRadius: '10px'}"
+                    :style="{borderRadius: '10px', overflow: 'hidden'}"
                 >
-                    <v-img
-                        :src="item.image"
-                        contain
-                        height="60%"
-                    >
-                        <v-card-title class="font-weight-black title text-uppercase">{{item.name}}</v-card-title>
-                    </v-img>
+                    <v-card-title class="font-weight-black title text-uppercase card-title">{{item.name}}</v-card-title>
+                    <v-row class="gradient" no-gutters> </v-row>
+                    <v-row class="card-img" align="center" justify="center" no-gutters>
+                        <v-img
+                                :src="item.image"
+                                contain
+                                height="60%"
+                                width="100%"
+                        >
+                        </v-img>
+                    </v-row>
                 </v-card>
             </v-col>
         </v-row>
@@ -44,4 +48,22 @@
 </script>
 
 <style scoped>
+    .card-title {
+        position: absolute;
+        z-index: 20;
+        width: 100%;
+    }
+    .gradient {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to top left, rgba(0,0,0,.33), rgba(0,0,0,0));
+    }
+    .card-img {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+    }
 </style>
