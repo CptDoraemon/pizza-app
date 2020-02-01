@@ -1,5 +1,5 @@
 <template>
-    <div class="font-weight-black title orange--text text-uppercase">
+    <div class="font-weight-black title text-uppercase primary--text">
         {{title}}
     </div>
 </template>

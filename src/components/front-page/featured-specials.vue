@@ -25,12 +25,12 @@
                                 <span
                                     v-for="(word, i) in styleTitle(item.name)"
                                     :key="i"
-                                    :class="i === 0 ? 'orange--text' : 'brown--text'"
+                                    :class="i === 0 ? 'primary--text' : 'secondary--text'"
                                 > {{word}} </span>
                             </v-col>
-                            <v-col cols="12" class="font-weight-bold brown--text">{{item.description}}</v-col>
-                            <v-col cols="12" class="body-2 grey--text">{{item.note}}</v-col>
-                            <v-col cols="12" class="font-weight-black orange--text display-1">${{item.price}}</v-col>
+                            <v-col cols="12" class="font-weight-bold secondary--text">{{item.description}}</v-col>
+                            <v-col cols="12" class="body-2 secondary--text">{{item.note}}</v-col>
+                            <v-col cols="12" class="font-weight-black primary--text display-1">${{item.price}}</v-col>
                             <v-col cols="12"><v-btn depressed class="orange white--text font-weight-black">Order Now</v-btn></v-col>
                         </v-row>
                     </v-col>
