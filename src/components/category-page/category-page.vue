@@ -1,10 +1,10 @@
 <template>
-    <fragment>
+    <fragment v-if="isDataLoaded">
         <div class="container-wrapper grey darken-2 white--text font-weight-black title">
             <ShadeGradient :zIndex="10"/>
             <div class="size-wrapper background-wrapper py-8 display-1 text-uppercase font-weight-black">
                 <div>{{title}}</div>
-                <v-img src="https://xiaoxihome.s3.us-east-2.amazonaws.com/pizza.png" class="py-8" alt="title" contain> </v-img>
+                <v-img :src="'../images/pizza-1.png'" class="py-8" alt="title" contain> </v-img>
             </div>
             <div class="size-wrapper back-to-menu-wrapper py-8">
                 <router-link :to="{name: 'home'}" class="white--text"><span class="primary--text" v-html="'<'"> </span> Back to menu</router-link>
@@ -31,6 +31,7 @@
     import ShadeGradient from "../common/shade-gradient";
     import getCategoryData from "../../data/helpers/get-category-data";
     import CategoryListItemCard from "./category-list-item-card";
+    import {routeNames, routeParams} from "../../router";
 
     export default {
         name: 'CategoryPage',
@@ -42,7 +43,7 @@
                 title: null
             }
         },
-        created: function() {
+        mounted: function() {
             this.fetchData(this.$route.params.categoryName);
             this.isDataLoaded = true;
         },
@@ -50,7 +51,8 @@
             fetchData: function(categoryName) {
                 const data = getCategoryData(categoryName);
                 if (!data.title) {
-                    this.$router.push({name: 'home'})
+                    const routeName = routeNames.pizzaCustomizer;
+                    this.$router.push({name: routeName, params: {[routeParams[routeName].pizza]: 'customize'}})
                 } else {
                     this.items = data.items;
                     this.title = data.title;

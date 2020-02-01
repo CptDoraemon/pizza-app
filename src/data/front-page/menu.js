@@ -12,7 +12,7 @@ const BackgroundColor = {
     black: 'grey darken-4'
 };
 
-const placeholderImage = "./pizza-1.png";
+const placeholderImage = "../images/pizza-1.png";
 
 const menuItems = [
     {

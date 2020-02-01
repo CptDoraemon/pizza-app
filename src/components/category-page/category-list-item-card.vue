@@ -22,7 +22,9 @@
                         <v-col cols="7">
                             <v-row no-gutters class="text-uppercase">
                                 <v-col cols="6">
-                                    <v-btn class="white primary--text font-weight-black" depressed>Customize</v-btn>
+                                    <router-link :to="`/pizza-customizer/${encodeURIComponent(name)}`">
+                                        <v-btn class="white primary--text font-weight-black" depressed>Customize</v-btn>
+                                    </router-link>
                                 </v-col>
                                 <v-col cols="6">
                                     <v-btn class="primary white--text font-weight-black" depressed>quick add</v-btn>

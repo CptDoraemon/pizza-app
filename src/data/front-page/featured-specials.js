@@ -1,4 +1,4 @@
-const placeholderImage = '/pizza.jpg';
+const placeholderImage = '../images/pizza.jpg';
 
 const featuredSpecials = [
     {

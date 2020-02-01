@@ -1,4 +1,4 @@
-const placeholderImage = 'https://xiaoxihome.s3.us-east-2.amazonaws.com/pizza-1.png';
+const placeholderImage = '../images/pizza-1.png';
 
 const veggieFavorites = [
     {
