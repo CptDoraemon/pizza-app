@@ -39,7 +39,10 @@ const pizzaTemplate = {
     },
     'special instructions': {
         ...specialInstructions
-    }
+    },
+    options: [
+        'dough-sauce-cheese', 'toppings', 'free toppings', 'special instructions'
+    ]
 };
 
 export default pizzaTemplate

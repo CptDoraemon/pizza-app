@@ -1,15 +1,17 @@
 <template>
-    <div v-if="isLoaded">
+    <div v-if="isLoaded" class="pizza-customizer-wrapper">
         <MainPanel />
+        <SubPanel />
     </div>
 </template>
 
 <script>
     import MainPanel from "./main-panel";
+    import SubPanel from "./sub-panel";
 
     export default {
         name: 'PizzaCustomizer',
-        components: {MainPanel},
+        components: {SubPanel, MainPanel},
         data: function() {
             return {
                 isLoaded: false
@@ -26,3 +28,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .pizza-customizer-wrapper {
+        position: relative;
+    }
+</style>

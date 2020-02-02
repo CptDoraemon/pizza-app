@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class="container grey lighten-2">
+    <v-container fluid class="main-panel-wrapper">
         <v-row align="center" justify="center" class="fill-height pa-8">
             <v-col cols="1" align-self="start" class="fill-height">
                 <router-link to="/">
@@ -49,8 +49,12 @@
 </script>
 
 <style scoped>
-    .container {
-        height: 600px;
+    .main-panel-wrapper {
+        height: 650px;
+        position: relative;
+        z-index: 1;
+        background-color: rgb(230, 230, 230);
+        padding-bottom: 50px;
     }
     .mid-col-wrapper {
         display: flex;

@@ -19,6 +19,10 @@
 </script>
 
 <style>
+    :root {
+        --theme-green: rgb(86, 111, 49);
+        --theme-green-lighten: rgb(167, 204, 112)
+    }
     a:link {
         text-decoration: inherit;
         color: inherit;
