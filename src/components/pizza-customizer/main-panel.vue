@@ -11,7 +11,7 @@
             </v-col>
             <v-col cols="4" class="fill-height">
                 <div class="mid-col-wrapper">
-                    <div class="mid-col-title text-center font-weight-black display-1 secondary--text text-capitalize">
+                    <div class="mid-col-title text-center font-weight-black display-1 secondary--text text-uppercase">
                         {{ size }}
                     </div>
 

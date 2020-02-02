@@ -1,17 +1,17 @@
-const options = [
-    'on left side',
-    'on whole',
-    'on right side'
-];
-const defaultOption = 'on whole';
-const defaultCount = 1;
+const options = {
+    'on left side': 'on left side',
+    'on whole': 'on whole',
+    'on right side': 'on right side'
+};
+const defaultOption = options['on whole'];
+const defaultCount = 0;
 const placeholderImage = '../images/veggie.png';
 const basePrice = 2;
 
-const veggie = [
-    {
+const veggie = {
+    'artichokes': {
         name: 'artichokes',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 0,
@@ -19,9 +19,9 @@ const veggie = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'broccoli': {
         name: 'broccoli',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 5,
@@ -29,9 +29,9 @@ const veggie = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'bruschetta': {
         name: 'bruschetta',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 5,
@@ -39,9 +39,9 @@ const veggie = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'caramelized onions': {
         name: 'caramelized onions',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 5,
@@ -49,9 +49,9 @@ const veggie = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'cilantro': {
         name: 'cilantro',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 0,
@@ -59,6 +59,6 @@ const veggie = [
         price: basePrice,
         isPremium: false
     }
-];
+};
 
 export default veggie

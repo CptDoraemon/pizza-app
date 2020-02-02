@@ -1,17 +1,17 @@
-const options = [
-    'on left side',
-    'on whole',
-    'on right side'
-];
-const defaultOption = 'on whole';
-const defaultCount = 1;
+const options = {
+    'on left side': 'on left side',
+    'on whole': 'on whole',
+    'on right side': 'on right side'
+};
+const defaultOption = options['on whole'];
+const defaultCount = 0;
 const placeholderImage = '../images/cheese.png';
 const basePrice = 2;
 
-const cheese = [
-    {
+const cheese = {
+    'blue cheese': {
         name: 'blue cheese',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 10,
@@ -19,9 +19,9 @@ const cheese = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'extra cheese': {
         name: 'extra cheese',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 10,
@@ -29,9 +29,9 @@ const cheese = [
         price: 3,
         isPremium: true
     },
-    {
+    'extra dairy-free cheese': {
         name: 'extra dairy-free cheese',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 15,
@@ -39,9 +39,9 @@ const cheese = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'feta cheese': {
         name: 'feta cheese',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 15,
@@ -49,9 +49,9 @@ const cheese = [
         price: basePrice,
         isPremium: false
     },
-    {
+    'four cheese blend topping': {
         name: 'four cheese blend topping',
-        options: [...options],
+        options: {...options},
         option: defaultOption,
         count: defaultCount,
         calories: 120,
@@ -59,6 +59,6 @@ const cheese = [
         price: 4,
         isPremium: true
     }
-];
+};
 
 export default cheese
