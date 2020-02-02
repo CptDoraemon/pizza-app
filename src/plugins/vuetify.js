@@ -10,6 +10,9 @@ export default new Vuetify({
         iconfont: 'md',
     },
     theme: {
+        options: {
+            customProperties: true,
+        },
         themes: {
             light: {
                 primary: colors.orange,

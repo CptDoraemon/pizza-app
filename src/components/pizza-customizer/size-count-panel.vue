@@ -38,10 +38,10 @@
                     <v-row>
                         <v-row>
                             <v-col cols="6">
-                                <v-row align="center" justify="center" no-gutters>
-                                    <v-col cols="4"><v-icon>add_circle_outline</v-icon></v-col>
-                                    <v-col cols="4">{{ quantity }}</v-col>
-                                    <v-col cols="4"><v-icon>remove_circle_outline</v-icon></v-col>
+                                <v-row align="center" justify="center" no-gutters class="text-center">
+                                    <v-col cols="2"><v-icon :class="{'quantity-button': quantity, 'quantity-button-disabled': !quantity}">remove_circle_outline</v-icon></v-col>
+                                    <v-col cols="3">{{ quantity }}</v-col>
+                                    <v-col cols="2"><v-icon class="quantity-button">add_circle_outline</v-icon></v-col>
                                 </v-row>
                             </v-col>
                             <v-col cols="6">
@@ -84,16 +84,23 @@
 </script>
 
 <style scoped>
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-    }
     .divider {
         width: 20%;
         height: 2px;
+    }
+    .quantity-button {
+        color: rgba(0,0,0,0.2);
+        cursor: pointer;
+        font-weight: bold;
+        line-height: 2;
+    }
+    .quantity-button:hover {
+        color: var(--v-primary-base);
+    }
+    .quantity-button-disabled {
+        color: rgba(0,0,0,0.1);
+        cursor: pointer;
+        font-weight: bold;
+        line-height: 2;
     }
 </style>
