@@ -56,7 +56,6 @@
                 const firstWord = words[0];
                 words.shift();
                 const restWords = words.join(' ');
-                console.log(firstWord, restWords);
                 return [firstWord, restWords]
             }
         }

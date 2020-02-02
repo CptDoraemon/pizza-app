@@ -63,7 +63,7 @@
     <!-- Add to Cart Ends-->
     <!-- Calories -->
             <v-col cols="12">
-                <v-row align="center" justify="center" class="font-weight-black title">
+                <v-row align="center" justify="center" class="font-weight-black title secondary--text">
                     {{ calories }} CALS/SLICE
                 </v-row>
             </v-col>
@@ -72,13 +72,19 @@
 </template>
 
 <script>
+    import {mapState, mapGetters} from "vuex";
+
     export default {
         name: 'SizeCountPanel',
-        props: {
-            sizeTemplate: Object,
-            quantity: Number,
-            price: Number,
-            calories: Number
+        computed: {
+            ...mapState({
+                sizeTemplate: state => state.pizzaTemplate.size,
+                quantity: state => state.customizingPizza.count
+            }),
+            ...mapGetters('customizingPizza', {
+                price: "getTotalPrice",
+                calories: "getTotalCalories"
+            })
         }
     }
 </script>

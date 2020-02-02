@@ -18,12 +18,12 @@
                     <v-img :src="'../images/pizza-1.png'" class="mid-col-image" contain/>
 
                     <div class="mid-col-description text-center">
-                        {{ descriptions }}
+                        {{ description }}
                     </div>
                 </div>
             </v-col>
             <v-col cols="3" class="fill-height">
-                <SizeCountPanel :size-template="sizeTemplate" :quantity="quantity" :price="price" :calories="calories"/>
+                <SizeCountPanel/>
             </v-col>
             <v-col cols="1" class="fill-height">
             </v-col>
@@ -33,16 +33,17 @@
 
 <script>
     import SizeCountPanel from "./size-count-panel";
+    import { mapState, mapGetters } from 'vuex'
     export default {
         name: 'MainPanel',
         components: {SizeCountPanel},
-        props: {
-            size: String,
-            descriptions: String,
-            sizeTemplate: Object,
-            quantity: Number,
-            price: Number,
-            calories: Number
+        computed: {
+            ...mapState({
+                size: state => state.customizingPizza.size.name
+            }),
+            ...mapGetters('customizingPizza', {
+                description: "getPizzaDescription"
+            })
         }
     }
 </script>
