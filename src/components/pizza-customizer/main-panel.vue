@@ -1,7 +1,7 @@
 <template>
     <v-container fluid class="container grey lighten-2">
-        <v-row no-gutters align="center" justify="center" class="fill-height pa-8">
-            <v-col cols="4" align-self="start" class="fill-height">
+        <v-row align="center" justify="center" class="fill-height pa-8">
+            <v-col cols="1" align-self="start" class="fill-height">
                 <router-link to="/">
                     <div class="back-button font-weight-black">
                         <span v-html="`<`" class="primary--text"> </span>
@@ -9,7 +9,7 @@
                     </div>
                 </router-link>
             </v-col>
-            <v-col cols="4" class="fill-height">
+            <v-col cols="7" class="fill-height">
                 <div class="mid-col-wrapper">
                     <div class="mid-col-title text-center font-weight-black display-1 secondary--text text-uppercase">
                         {{ size }}
@@ -22,17 +22,27 @@
                     </div>
                 </div>
             </v-col>
-            <v-col cols="4" class="fill-height"> </v-col>
+            <v-col cols="3" class="fill-height">
+                <SizeCountPanel :size-template="sizeTemplate" :quantity="quantity" :price="price" :calories="calories"/>
+            </v-col>
+            <v-col cols="1" class="fill-height">
+            </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+    import SizeCountPanel from "./size-count-panel";
     export default {
         name: 'MainPanel',
+        components: {SizeCountPanel},
         props: {
             size: String,
-            descriptions: String
+            descriptions: String,
+            sizeTemplate: Object,
+            quantity: Number,
+            price: Number,
+            calories: Number
         }
     }
 </script>
