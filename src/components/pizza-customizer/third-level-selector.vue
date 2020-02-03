@@ -5,9 +5,6 @@
                     v-for="(item, i) in itemsArray"
                     :key="i"
                     :item="item"
-                    :isActive="activeCard === i"
-                    :index="i"
-                    @toggleActiveCard="setActiveCard"
             />
         </div>
     </div>
@@ -18,11 +15,6 @@
     export default {
         name: 'ThirdLevelSelector',
         components: {OptionCard},
-        data() {
-            return {
-                activeCard: 0
-            }
-        },
         props: {
             items: Object
         },
@@ -34,12 +26,6 @@
                 return Object.values(this.items)
             }
         },
-        methods: {
-            setActiveCard(value) {
-                if (this.activeCard === value) return;
-                this.activeCard = value
-            }
-        }
     }
 </script>
 

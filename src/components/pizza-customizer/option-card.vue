@@ -1,7 +1,6 @@
 <template>
     <div
             :class="isActive ? `${cardWrapperClass} option-card-wrapper-active` : `${cardWrapperClass} secondary--text option-card-wrapper-inactive`"
-            @click="$emit('toggleActiveCard', index)"
             >
         <div v-if="isActive" class="card-selected">
             <v-icon class="card-selected-text">done</v-icon>
@@ -20,13 +19,12 @@
         name: 'OptionCard',
         data() {
             return {
-                cardWrapperClass: 'option-card-wrapper font-weight-bold text-capitalize'
+                cardWrapperClass: 'option-card-wrapper font-weight-bold text-capitalize',
+                isActive: false
             }
         },
         props: {
             item: Object,
-            isActive: Boolean,
-            index: Number
         }
     }
 </script>

@@ -1,12 +1,12 @@
-const options = {
-    'on left side': 'on left side',
-    'on whole': 'on whole',
-    'on right side': 'on right side'
-};
-const defaultOption = options['on whole'];
-const defaultCount = 0;
+import {
+    options,
+    defaultOption,
+    defaultCount,
+    basePrice,
+    maxCount
+} from './index'
 const placeholderImage = '../images/meat.png';
-const basePrice = 2;
+
 
 const meat = {
     'anchovies': {
@@ -14,6 +14,7 @@ const meat = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 5,
         image: placeholderImage,
         price: basePrice,
@@ -24,6 +25,7 @@ const meat = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 20,
         image: placeholderImage,
         price: basePrice,
@@ -34,6 +36,7 @@ const meat = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 20,
         image: placeholderImage,
         price: 3,
@@ -44,6 +47,7 @@ const meat = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 20,
         image: placeholderImage,
         price: 3,
@@ -54,6 +58,7 @@ const meat = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 30,
         image: placeholderImage,
         price: basePrice,

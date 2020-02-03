@@ -1,12 +1,11 @@
-const options = {
-    'on left side': 'on left side',
-    'on whole': 'on whole',
-    'on right side': 'on right side'
-};
-const defaultOption = options['on whole'];
-const defaultCount = 0;
+import {
+    options,
+    defaultOption,
+    defaultCount,
+    basePrice,
+    maxCount
+} from './index'
 const placeholderImage = '../images/cheese.png';
-const basePrice = 2;
 
 const cheese = {
     'blue cheese': {
@@ -14,6 +13,7 @@ const cheese = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 10,
         image: placeholderImage,
         price: basePrice,
@@ -24,6 +24,7 @@ const cheese = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 10,
         image: placeholderImage,
         price: 3,
@@ -34,6 +35,7 @@ const cheese = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 15,
         image: placeholderImage,
         price: basePrice,
@@ -44,6 +46,7 @@ const cheese = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 15,
         image: placeholderImage,
         price: basePrice,
@@ -54,6 +57,7 @@ const cheese = {
         options: {...options},
         option: defaultOption,
         count: defaultCount,
+        maxCount: maxCount,
         calories: 120,
         image: placeholderImage,
         price: 4,
