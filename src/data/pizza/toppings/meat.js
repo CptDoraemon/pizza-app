@@ -8,8 +8,8 @@ import {
 const placeholderImage = '../images/meat.png';
 
 
-const meat = {
-    'anchovies': {
+const meat = [
+    {
         name: 'anchovies',
         options: {...options},
         option: defaultOption,
@@ -20,7 +20,7 @@ const meat = {
         price: basePrice,
         isPremium: false
     },
-    'bacon crumble': {
+    {
         name: 'bacon crumble',
         options: {...options},
         option: defaultOption,
@@ -31,7 +31,7 @@ const meat = {
         price: basePrice,
         isPremium: false
     },
-    'bacon strips': {
+    {
         name: 'bacon strips',
         options: {...options},
         option: defaultOption,
@@ -42,7 +42,7 @@ const meat = {
         price: 3,
         isPremium: true
     },
-    'buffalo chicken': {
+    {
         name: 'buffalo chicken',
         options: {...options},
         option: defaultOption,
@@ -53,7 +53,7 @@ const meat = {
         price: 3,
         isPremium: true
     },
-    'new york style pepperoni': {
+    {
         name: 'new york style pepperoni',
         options: {...options},
         option: defaultOption,
@@ -64,6 +64,6 @@ const meat = {
         price: basePrice,
         isPremium: false
     }
-};
+];
 
 export default meat

@@ -1,27 +1,26 @@
 <template>
     <div class="sub-panel-wrapper">
         <div class="width-wrapper">
-            <FirstLevelSelector :items="firstLevelOptions" :activeItem="activeFirstLevelOption" @toggleActiveItem="toggleActiveFirstLevelOption"/>
+            <FirstLevelSelector :items="getFirstCategory()" :activeItem="firstCategory" @toggleActiveItem="toggleFirstCategory"/>
         </div>
-        <div class="width-wrapper" v-if="isSecondLevelOption">
+        <div class="width-wrapper" v-if="getSecondCategory(firstCategory).length > 1">
             <SecondLevelSelector
-                    :items="secondLevelOptions"
-                    :activeItem="activeSecondLevelOption"
-                    @toggleActiveItem="toggleActiveSecondLevelOption"
-                    :key="activeFirstLevelOption"
+                    :items="getSecondCategory(firstCategory)"
+                    :activeItem="secondCategory"
+                    @toggleActiveItem="toggleSecondCategory"
+                    :key="firstCategory"
             />
         </div>
         <div class="width-wrapper">
             <ThirdLevelSelector
-                :items="thirdLevelData"
-                :path="path"
+                :items="getConfigurableItems(firstCategory, secondCategory)"
             />
         </div>
     </div>
 </template>
 
 <script>
-    import { mapState, mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex'
     import FirstLevelSelector from "./first-level-selector";
     import SecondLevelSelector from "./second-level-selector";
     import ThirdLevelSelector from "./third-level-selector";
@@ -30,67 +29,21 @@
         components: {ThirdLevelSelector, SecondLevelSelector, FirstLevelSelector},
         data() {
             return {
-                activeFirstLevelOption: 0,
-                activeSecondLevelOption: 0,
-                isSecondLevelOption: false,
-                secondLevelOptions: [],
-                thirdLevelData: {},
-                path: []
+                firstCategory: 0,
+                secondCategory: 0
             }
         },
         computed: {
-            ...mapGetters('pizzaTemplate', {
-                templateData: "getSubPanelData"
-            }),
-            ...mapState({
-                firstLevelOptions: state => state.pizzaTemplate.options,
-            })
+            ...mapGetters('pizzaTemplate', ["getFirstCategory", "getSecondCategory", "getConfigurableItems"])
         },
         methods: {
-            toggleActiveFirstLevelOption(value) {
-                this.activeFirstLevelOption = value;
-                this.activeSecondLevelOption = 0;
+            toggleFirstCategory(value) {
+                this.firstCategory = value;
+                this.secondCategory = 0
             },
-            toggleActiveSecondLevelOption(value) {
-                this.activeSecondLevelOption = value
-            },
-            setIsSecondLevelOption() {
-                const firstLevelOptionKey = this.firstLevelOptions[this.activeFirstLevelOption];
-                const firstLevelObj = this.templateData[firstLevelOptionKey];
-                const secondLevelObj = firstLevelObj[Object.keys(firstLevelObj)[0]];
-                const isSecondLevelOption = secondLevelObj.name === undefined;
-                if (isSecondLevelOption) {
-                    this.isSecondLevelOption = true;
-                    this.secondLevelOptions = Object.keys(firstLevelObj)
-                } else {
-                    this.isSecondLevelOption = false;
-                    this.secondLevelOptions = []
-                }
-            },
-            getDataForThirdLevel() {
-                const firstLevelPath = this.firstLevelOptions[this.activeFirstLevelOption];
-                if (this.isSecondLevelOption) {
-                    const secondLevelPath = this.secondLevelOptions[this.activeSecondLevelOption];
-                    this.path = [firstLevelPath, secondLevelPath];
-                    this.thirdLevelData = Object.assign({}, this.templateData[firstLevelPath][secondLevelPath])
-                } else {
-                    this.path = [firstLevelPath];
-                    this.thirdLevelData = Object.assign({}, this.templateData[firstLevelPath])
-                }
+            toggleSecondCategory(value) {
+                this.secondCategory = value
             }
-        },
-        watch: {
-            activeFirstLevelOption() {
-                this.setIsSecondLevelOption();
-                this.getDataForThirdLevel();
-            },
-            activeSecondLevelOption() {
-                this.getDataForThirdLevel();
-            }
-        },
-        mounted() {
-            this.setIsSecondLevelOption();
-            this.getDataForThirdLevel();
         }
     }
 </script>

@@ -1,22 +1,36 @@
-import pizzaTemplate from "../data/pizza/pizza-template";
+import pizzaConfigurations from "../data/pizza/pizza-configurations";
+
+const firstCategory = ['dough / sauce / cheese', 'toppings', 'free toppings', 'special instructions'];
+const secondCategory = [
+    ['dough', 'sauce', 'base cheese'],
+    ['veggie', 'meat', 'cheese'],
+    [],
+    []
+];
+const mappedKeyInPizzaConfigurations = [
+    ['dough', 'sauce', 'baseCheese'],
+    ['veggie', 'meat', 'toppingCheese'],
+    ['freeToppings'],
+    ['specialInstructions']
+];
 
 const pizzaTemplateState ={
     namespaced: true,
     state: {
-        ...pizzaTemplate
+        ...pizzaConfigurations
     },
     mutations: {
     },
     actions: {
     },
     getters: {
-        getSubPanelData: state => {
-            const keysArray = state.options;
-            const data = {};
-            keysArray.forEach(key => {
-                Object.assign(data, {[key]: state[key]})
-            });
-            return data
+        getFirstCategory: () => () => firstCategory,
+        getSecondCategory: () => (firstCategoryIndex) => secondCategory[firstCategoryIndex],
+        getConfigurableItems: state => (firstCategoryIndex, secondCategoryIndex) => {
+            const key = mappedKeyInPizzaConfigurations[firstCategoryIndex][secondCategoryIndex];
+            return [
+                ...state[key]
+            ]
         }
     }
 };

@@ -1,20 +1,16 @@
-import pizzaTemplate from "../pizza-template";
+import pizzaConfigurations from "../pizza-configurations";
 
 const buildYourOwn = {
     name: 'build your own',
-    size: pizzaTemplate.size.large,
-    'dough-sauce-cheese': {
-        dough: pizzaTemplate["dough-sauce-cheese"].dough["regular dough"],
-        sauce: pizzaTemplate["dough-sauce-cheese"].sauce["buffalo blue cheese sauce"],
-        cheese: pizzaTemplate["dough-sauce-cheese"]['base cheese']["dairy-free cheese"]
-    },
-    toppings: {
-        veggie: [Object.assign({}, pizzaTemplate.toppings.veggie.broccoli, {count: 1})],
-        meat: [Object.assign({}, pizzaTemplate.toppings.meat["bacon crumble"], {count: 1})],
-        cheese: [Object.assign({}, pizzaTemplate.toppings.cheese["blue cheese"], {count: 1})]
-    },
-    'free toppings': [],
-    'special instructions': {},
+    size: pizzaConfigurations.size[2],
+    dough: pizzaConfigurations['dough'][0],
+    sauce: pizzaConfigurations['sauce'][0],
+    baseCheese: pizzaConfigurations['baseCheese'][1],
+    veggie: [Object.assign({}, pizzaConfigurations.veggie[1], {count: 1})],
+    meat: [Object.assign({}, pizzaConfigurations.meat[1], {count: 1})],
+    toppingCheese: [Object.assign({}, pizzaConfigurations.toppingCheese[0], {count: 1})],
+    'freeToppings': [],
+    'specialInstructions': {},
     count: 1
 };
 

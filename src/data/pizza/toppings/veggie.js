@@ -7,8 +7,8 @@ import {
 } from './index'
 const placeholderImage = '../images/veggie.png';
 
-const veggie = {
-    'artichokes': {
+const veggie = [
+    {
         name: 'artichokes',
         options: {...options},
         option: defaultOption,
@@ -19,7 +19,7 @@ const veggie = {
         price: basePrice,
         isPremium: false
     },
-    'broccoli': {
+    {
         name: 'broccoli',
         options: {...options},
         option: defaultOption,
@@ -30,7 +30,7 @@ const veggie = {
         price: basePrice,
         isPremium: false
     },
-    'bruschetta': {
+    {
         name: 'bruschetta',
         options: {...options},
         option: defaultOption,
@@ -41,7 +41,7 @@ const veggie = {
         price: basePrice,
         isPremium: false
     },
-    'caramelized onions': {
+    {
         name: 'caramelized onions',
         options: {...options},
         option: defaultOption,
@@ -52,7 +52,7 @@ const veggie = {
         price: basePrice,
         isPremium: false
     },
-    'cilantro': {
+    {
         name: 'cilantro',
         options: {...options},
         option: defaultOption,
@@ -63,6 +63,6 @@ const veggie = {
         price: basePrice,
         isPremium: false
     }
-};
+];
 
 export default veggie

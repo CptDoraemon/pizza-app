@@ -7,8 +7,8 @@ import {
 } from './index'
 const placeholderImage = '../images/cheese.png';
 
-const cheese = {
-    'blue cheese': {
+const cheese = [
+    {
         name: 'blue cheese',
         options: {...options},
         option: defaultOption,
@@ -19,7 +19,7 @@ const cheese = {
         price: basePrice,
         isPremium: false
     },
-    'extra cheese': {
+    {
         name: 'extra cheese',
         options: {...options},
         option: defaultOption,
@@ -30,7 +30,7 @@ const cheese = {
         price: 3,
         isPremium: true
     },
-    'extra dairy-free cheese': {
+    {
         name: 'extra dairy-free cheese',
         options: {...options},
         option: defaultOption,
@@ -41,7 +41,7 @@ const cheese = {
         price: basePrice,
         isPremium: false
     },
-    'feta cheese': {
+    {
         name: 'feta cheese',
         options: {...options},
         option: defaultOption,
@@ -52,7 +52,7 @@ const cheese = {
         price: basePrice,
         isPremium: false
     },
-    'four cheese blend topping': {
+    {
         name: 'four cheese blend topping',
         options: {...options},
         option: defaultOption,
@@ -63,6 +63,6 @@ const cheese = {
         price: 4,
         isPremium: true
     }
-};
+];
 
 export default cheese

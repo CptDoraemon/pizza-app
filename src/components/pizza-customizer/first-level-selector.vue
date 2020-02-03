@@ -9,7 +9,7 @@
                     :class="i === activeItem ? 'item-active' : 'item-inactive'"
                     :ref="`item-${i}`"
             >
-                {{ item.replace(/-/g, ' / ') }}
+                {{ item }}
             </div>
         </div>
     </div>

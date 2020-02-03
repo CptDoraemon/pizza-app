@@ -40,6 +40,7 @@
         height: 150px;
         border-radius: 15px;
         margin: 10px;
+        padding: 0 10px;
         position: relative;
     }
     .option-card-wrapper-active {

@@ -2,7 +2,7 @@
     <div class="third-level-selector-wrapper">
         <div class="cards-wrapper">
             <OptionCard
-                    v-for="(item, i) in itemsArray"
+                    v-for="(item, i) in items"
                     :key="i"
                     :item="item"
                     :path="path"
@@ -17,16 +17,8 @@
         name: 'ThirdLevelSelector',
         components: {OptionCard},
         props: {
-            items: Object,
+            items: Array,
             path: Array
-        },
-        computed: {
-            options() {
-                return Object.keys(this.items)
-            },
-            itemsArray() {
-                return Object.values(this.items)
-            }
         },
     }
 </script>

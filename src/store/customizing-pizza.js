@@ -11,14 +11,14 @@ const customizingPizzaState = {
     },
     getters: {
         getPizzaDescription: state => {
-            const dough = state["dough-sauce-cheese"].dough.name;
-            const sauce = getDescriptionWithOption(state["dough-sauce-cheese"].sauce);
-            const baseCheese = getDescriptionWithOption(state["dough-sauce-cheese"].cheese);
-            const veggie = getDescriptionWithOptionAndCount(state.toppings.veggie);
-            const meat = getDescriptionWithOptionAndCount(state.toppings.meat);
-            const cheese = getDescriptionWithOptionAndCount(state.toppings.cheese);
-            const freeToppings = getDescriptionWithOptionAndCount(state["free toppings"]);
-            const specialInstructions = state["special instructions"].name === 'regular' ? '' : state["special instructions"].name;
+            const dough = state.dough.name;
+            const sauce = getDescriptionWithOption(state.sauce);
+            const baseCheese = getDescriptionWithOption(state.baseCheese);
+            const veggie = getDescriptionWithOptionAndCount(state.veggie);
+            const meat = getDescriptionWithOptionAndCount(state.meat);
+            const cheese = getDescriptionWithOptionAndCount(state.toppingCheese);
+            const freeToppings = getDescriptionWithOptionAndCount(state.freeToppings);
+            const specialInstructions = state.specialInstructions.name === 'regular' ? '' : state.specialInstructions.name;
             const description = [dough, sauce, baseCheese, veggie, meat, cheese, freeToppings, specialInstructions].filter(i => i && i.length);
             return description.join(', ');
         },
