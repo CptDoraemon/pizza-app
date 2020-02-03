@@ -5,6 +5,7 @@
                     v-for="(item, i) in itemsArray"
                     :key="i"
                     :item="item"
+                    :path="path"
             />
         </div>
     </div>
@@ -16,7 +17,8 @@
         name: 'ThirdLevelSelector',
         components: {OptionCard},
         props: {
-            items: Object
+            items: Object,
+            path: Array
         },
         computed: {
             options() {

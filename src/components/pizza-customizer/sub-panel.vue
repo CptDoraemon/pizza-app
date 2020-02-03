@@ -13,7 +13,8 @@
         </div>
         <div class="width-wrapper">
             <ThirdLevelSelector
-                :items="getDataForThirdLevel()"
+                :items="thirdLevelData"
+                :path="path"
             />
         </div>
     </div>
@@ -32,7 +33,9 @@
                 activeFirstLevelOption: 0,
                 activeSecondLevelOption: 0,
                 isSecondLevelOption: false,
-                secondLevelOptions: []
+                secondLevelOptions: [],
+                thirdLevelData: {},
+                path: []
             }
         },
         computed: {
@@ -65,18 +68,29 @@
                 }
             },
             getDataForThirdLevel() {
-                return this.isSecondLevelOption ?
-                    this.templateData[this.firstLevelOptions[this.activeFirstLevelOption]][this.secondLevelOptions[this.activeSecondLevelOption]] :
-                    this.templateData[this.firstLevelOptions[this.activeFirstLevelOption]]
+                const firstLevelPath = this.firstLevelOptions[this.activeFirstLevelOption];
+                if (this.isSecondLevelOption) {
+                    const secondLevelPath = this.secondLevelOptions[this.activeSecondLevelOption];
+                    this.path = [firstLevelPath, secondLevelPath];
+                    this.thirdLevelData = Object.assign({}, this.templateData[firstLevelPath][secondLevelPath])
+                } else {
+                    this.path = [firstLevelPath];
+                    this.thirdLevelData = Object.assign({}, this.templateData[firstLevelPath])
+                }
             }
         },
         watch: {
             activeFirstLevelOption() {
-                this.setIsSecondLevelOption()
+                this.setIsSecondLevelOption();
+                this.getDataForThirdLevel();
+            },
+            activeSecondLevelOption() {
+                this.getDataForThirdLevel();
             }
         },
         mounted() {
-            this.setIsSecondLevelOption()
+            this.setIsSecondLevelOption();
+            this.getDataForThirdLevel();
         }
     }
 </script>

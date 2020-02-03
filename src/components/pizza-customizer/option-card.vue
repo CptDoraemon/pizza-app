@@ -25,6 +25,7 @@
         },
         props: {
             item: Object,
+            path: Array
         }
     }
 </script>
