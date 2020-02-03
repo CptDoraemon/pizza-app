@@ -6,7 +6,7 @@ const buildYourOwn = {
     'dough-sauce-cheese': {
         dough: pizzaTemplate["dough-sauce-cheese"].dough["regular dough"],
         sauce: pizzaTemplate["dough-sauce-cheese"].sauce["buffalo blue cheese sauce"],
-        cheese: pizzaTemplate["dough-sauce-cheese"].cheese["dairy-free cheese"]
+        cheese: pizzaTemplate["dough-sauce-cheese"]['base cheese']["dairy-free cheese"]
     },
     toppings: {
         veggie: [Object.assign({}, pizzaTemplate.toppings.veggie.broccoli, {count: 1})],

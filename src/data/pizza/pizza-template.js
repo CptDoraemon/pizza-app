@@ -19,7 +19,7 @@ const pizzaTemplate = {
         'sauce': {
             ...sauce
         },
-        'cheese': {
+        'base cheese': {
             ...baseCheese
         }
     },

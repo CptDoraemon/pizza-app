@@ -67,7 +67,6 @@
         align-items: center;
         justify-content: center;
         height: 100px;
-        /*background-color: var(--v-primary-base);*/
         color: white;
         border-radius: 60px;
         border: solid 4px rgba(0,0,0,0);
@@ -81,6 +80,7 @@
         align-items: center;
         justify-content: center;
         height: 100px;
+        color: rgba(0,0,0,0.3);
         cursor: pointer;
         border-radius: 60px;
         border: solid 4px rgba(0, 0, 0, 0);
